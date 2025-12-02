@@ -9,9 +9,12 @@ int part1(const vector<string>& rotations) {
         char dir = line[0];
         int val = stoi(line.substr(1));
 
-        if (dir == 'L') currentDialPos = (currentDialPos - val + 100) % 100;
-        else if (dir == 'R') currentDialPos = (currentDialPos + val) % 100;
-
+        if (dir == 'L') {
+            currentDialPos = (currentDialPos - val + 100) % 100;
+        }
+        else if (dir == 'R') { 
+            currentDialPos = (currentDialPos + val) % 100;
+        }
         if (currentDialPos == 0) counter++;
     }
 
