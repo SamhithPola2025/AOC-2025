@@ -12,7 +12,7 @@ This years advent of code solutions, done in C++
 | 1   | 00:24:22  | 00:34:21  |
 
 ### Day #1
-View the problem (here)[https://adventofcode.com/2025/day/1] for more context.
+View the problem [here](https://adventofcode.com/2025/day/1) for more context.
 Day 1 was rather easy, per-say, but I also took a substantial amount of time to derive a solution from what I had conceived in my mind. Sometimes psuedocode to actual C++ code is what gets me stuck up. But nonetheless, here is a simple breakdown of my solution without exactly revealing the small details of how to implement it, if you want to see that then you are more than welcome to go to [day 1](day01/day1.cpp)!
 
 #### Part 1:
