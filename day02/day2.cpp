@@ -1,67 +1,75 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool isRepeated(const std::string &s) {
+bool isRepeatedTwice(const string& s) {
     int n = s.size();
-    for (int len = 1; len <= n / 2; ++len) {
-        if (n % len != 0) continue;
-        std::string pattern = s.substr(0, len);
-        bool isValid = true;
-        int repeatCount = 0;
-        for (int i = 0; i < n; i += len) {
-            if (s.substr(i, len) != pattern) {
-                isValid = false;
-                break;
-            }
-            repeatCount++;
-        }
-        if (isValid && repeatCount >= 2) return true;
+    for (int len = 1; len <= n/2; len++) {
+        if (n != len*2) continue; // must be exactly 2 repeats
+        string p = s.substr(0, len);
+        if (s.substr(len, len) == p) return true;
     }
     return false;
 }
 
-long part1(const std::string &range) {
-    long sum = 0;
-    size_t dash = range.find('-');
-    long a = std::stol(range.substr(0, dash));
-    long b = std::stol(range.substr(dash + 1));
-    for (long x = a; x <= b; x++) {
-        if (isRepeated(std::to_string(x))) {
-            sum += x;
+bool isRepeatedAtLeast2(const string& s) {
+    int n = s.size();
+    for (int len = 1; len <= n/2; len++) {
+        if (n % len != 0) continue; // must divide evenly
+        string p = s.substr(0, len);
+        bool ok = true;
+        for (int i = 0; i < n; i += len) {
+            if (s.substr(i, len) != p) {
+                ok = false;
+                break;
+            }
         }
+        if (ok) return true;
+    }
+    return false;
+}
+
+long solvePart1(const string& range) {
+    long sum = 0;
+    long dash = range.find('-');
+    long a = stol(range.substr(0, dash));
+    long b = stol(range.substr(dash + 1));
+
+    for (long x = a; x <= b; x++) {
+        string s = to_string(x);
+        if (isRepeatedTwice(s)) sum += x;
     }
     return sum;
 }
 
-long part2(const std::string &range) {
+long solvePart2(const string& range) {
     long sum = 0;
-    size_t dash = range.find('-');
-    long a = std::stol(range.substr(0, dash));
-    long b = std::stol(range.substr(dash + 1));
+    long dash = range.find('-');
+    long a = stol(range.substr(0, dash));
+    long b = stol(range.substr(dash + 1));
+
     for (long x = a; x <= b; x++) {
-        std::string numStr = std::to_string(x);
-        if (isRepeated(numStr)) {
-            sum += x;
-        }
+        string s = to_string(x);
+        if (isRepeatedAtLeast2(s)) sum += x;
     }
     return sum;
 }
 
 int main() {
-    std::ifstream file("day02/day2input.txt");
-    std::string line;
-    if (std::getline(file, line)) {
-        std::stringstream ss(line);
-        std::string range;
-        long totalSumPart1 = 0, totalSumPart2 = 0;
-        while (std::getline(ss, range, ',')) {
-            long rangeSum1 = part1(range);
-            totalSumPart1 += rangeSum1;
-            long rangeSum2 = part2(range);
-            totalSumPart2 += rangeSum2;
+    ifstream file("day02/day2input.txt");
+    string line;
+
+    if (getline(file, line)) {
+        stringstream ss(line);
+        string range;
+        long total1 = 0, total2 = 0;
+
+        while (getline(ss, range, ',')) {
+            total1 += solvePart1(range);
+            total2 += solvePart2(range);
         }
-        std::cout << "Total Sum of Numbers (Part 1): " << totalSumPart1 << std::endl;
-        std::cout << "Total Sum of Numbers that Repeat Twice or More (Part 2): " << totalSumPart2 << std::endl;
+
+        cout << total1 << endl;
+        cout << total2 << endl;
     }
     return 0;
 }
