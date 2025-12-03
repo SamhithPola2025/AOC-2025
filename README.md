@@ -11,7 +11,7 @@ Day   -Part 1-   -Part 2-
 
 ### Day #1
 View the problem (here)[https://adventofcode.com/2025/day/1] for more context.
-Day 1 was rather easy, per-say, but I also took a substantial amount of time to derive a solution from what I had conceived in my mind. Sometimes psuedocode to actual C++ code is what gets me stuck up. But nonetheless, here is a simple breakdown of my solution without exactly revealing the small details of how to implement it, if you want to see that then you are more than welcome to go to (day 1)[day01/day1.cpp]!
+Day 1 was rather easy, per-say, but I also took a substantial amount of time to derive a solution from what I had conceived in my mind. Sometimes psuedocode to actual C++ code is what gets me stuck up. But nonetheless, here is a simple breakdown of my solution without exactly revealing the small details of how to implement it, if you want to see that then you are more than welcome to go to [day 1](day01/day1.cpp)!
 
 #### Part 1:
 ```c++
@@ -34,13 +34,13 @@ Part 2 had a tiny little twist attatched additional to part 1, the problem asks 
 - Profit (in this case the solution)
 
 ### Day #2
-View the problem (here)[https://adventofcode.com/2025/day/2] for more context.
+View the problem [here](https://adventofcode.com/2025/day/2) for more context.
 Like day 1, I had trouble implementing this, but this one was easier to think about in my mind for some reason compared to having a visual dial to have to picture. 
 
 #### Part 1:
-Now, I wont be going into exact details of how I went about solving this in the following 2-3 paragraphs, but this is just the general method and thought process I went with. If you want to see the exact solution, refer to (this)[day02/day2.cpp].
+Now, I wont be going into exact details of how I went about solving this in the following 2-3 paragraphs, but this is just the general method and thought process I went with. If you want to see the exact solution, refer to [this](day02/day2.cpp).
 
-Now that we got a big block of text out of the way from day 1, heres how I first thought of this problem. I saw the problem and immediately thought, "how could I find the most optimal way to do that without ~8 for loops like everything else I do". Then it hit me (after a solid 5 minutes of staring) that I could divide the total number by 2 and check if both sides were equal, if both sides turned out to be equal, that meantt that there was a repeating pattern and that it had to be marked as false and added to the total counter.
+Now that we got a big block of text out of the way from day 1, heres how I first thought of this problem. I saw the problem and immediately thought, "how could I find the most optimal way to do that without ~8 for loops like everything else I do". Then it hit me (after a solid 5 minutes of staring) that I could divide the total number by 2 and check if both sides were equal, if both sides turned out to be equal, that meant that there was a repeating pattern and that it had to be marked as false and added to the total counter.
 
 It also took me a while to take into account the fact that you can immediately call it safe if when you divide it by 2 it is odd, because then there is no chance of having a complete, repeating pattern.
 
@@ -64,7 +64,8 @@ Challenge: Translating the problem into code was tricky at first, especially whe
 Insight: I realized that I could optimize the solution by skipping numbers that couldn’t possibly have repeating patterns (e.g., odd-length numbers).
 
 ### Day #3
-Now, I wont be going into exact details of how I went about solving this in the following 2-3 paragraphs, but this is just the general method and thought process I went with. If you want to see the exact solution, refer to (this)[day02/day2.cpp].
+For more context, view the problem [here](https://adventofcode.com/2025/day/3)
+Now, I wont be going into exact details of how I went about solving this in the following 2-3 paragraphs, but this is just the general method and thought process I went with. If you want to see the exact solution, refer to [this](day03/day3.cpp).
 
 I'm going to be very honest here, day 3 had me baffled. This seems like a very easy problem and it is but I had no clue where to start (spoiler alert, I did end up solving it), so here is what I did when I had no clue on what to do, but ended up solving it:
 
