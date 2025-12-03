@@ -4,10 +4,12 @@ This years advent of code solutions, done in C++
 ## Solutions/Writeups below: 
 
 ### Times (it's my first year doing AOC or any competitive stuff so they wont be good but thats ok!):
-Day   -Part 1-   -Part 2-
-  3   00:21:27   00:24:03
-  2   00:37:56   00:55:30
-  1   00:24:22   00:34:21
+
+| Day | Part 1    | Part 2    |
+|-----|-----------|-----------|
+| 3   | 00:21:27  | 00:24:03  |
+| 2   | 00:37:56  | 00:55:30  |
+| 1   | 00:24:22  | 00:34:21  |
 
 ### Day #1
 View the problem (here)[https://adventofcode.com/2025/day/1] for more context.
