@@ -7,6 +7,7 @@ This years advent of code solutions, done in C++
 
 | Day | Part 1    | Part 2    |
 |-----|-----------|-----------|
+| 4   | 00:19:19  | 00:31:22  |
 | 3   | 00:21:27  | 00:24:03  |
 | 2   | 00:37:56  | 00:55:30  |
 | 1   | 00:24:22  | 00:34:21  |
@@ -117,7 +118,7 @@ Now, I wont be going into exact details of how I went about solving this in the 
 
 This is actually quite funny, todays problem was an outlier and happend to be a lot easier than the otherse, regardless of the fact that I got a similar time to day 1 because my abundance of skill issue. I didn't have to think too much about it and here is why:
 
-#### Part 1: To be filled in
+#### Part 1:
 I spent about 3 minutes reading and understanding the problem. Once I grasped the requirements, I realized that this was a simple grid traversal problem. The grid was represented as a ```std::vector<string>```, where each cell contained either:
 - ```@```(an active symbol), or
 - ```.```(an empty space).
@@ -130,7 +131,7 @@ The goal was to process the grid and count certain patterns based on the problem
         I used a helper function to count the neighbors of each @ symbol.
         The function iterated through all 8 possible directions (using a dirs vector) to check for valid neighbors.
 
-#### Part 2: To be filled in
+#### Part 2:
 
 Part 2 introduced a slight twist to the problem. Instead of simply counting @ symbols, I had to remove certain @ symbols from the grid based on specific rules. The process was repeated until no more @ symbols could be removed.
 
