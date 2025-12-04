@@ -112,7 +112,50 @@ Heres what __I think...__
 I think that the remaining problems are going to get exponentially difficult. Not difficult in a sense where it is leetcode-hard mode problems but rather in a sense that if you know algorithms and specific approaches to common problems, the problem will be exponentially easier for you to solve.
 
 ### Day 4
+For more context, view the problem [here](https://adventofcode.com/2025/day/4)
+Now, I wont be going into exact details of how I went about solving this in the following 2-3 paragraphs, but this is just the general method and thought process I went with. If you want to see the exact solution, refer to [this](day03/day4.cpp).
+
+This is actually quite funny, todays problem was an outlier and happend to be a lot easier than the otherse, regardless of the fact that I got a similar time to day 1 because my abundance of skill issue. I didn't have to think too much about it and here is why:
 
 #### Part 1: To be filled in
+I spent about 3 minutes reading and understanding the problem. Once I grasped the requirements, I realized that this was a simple grid traversal problem. The grid was represented as a ```std::vector<string>```, where each cell contained either:
+- ```@```(an active symbol), or
+- ```.```(an empty space).
+
+The goal was to process the grid and count certain patterns based on the problem's rules. While I wont go into exact details:
+    Define the Rules:
+        For each @ symbol, I checked its neighbors (up, down, left, right, and diagonals).
+        Based on the number of neighboring @ symbols, I determined whether the current @ symbol should be counted or ignored.
+    Implementation:
+        I used a helper function to count the neighbors of each @ symbol.
+        The function iterated through all 8 possible directions (using a dirs vector) to check for valid neighbors.
 
 #### Part 2: To be filled in
+
+Part 2 introduced a slight twist to the problem. Instead of simply counting @ symbols, I had to remove certain @ symbols from the grid based on specific rules. The process was repeated until no more @ symbols could be removed.
+
+Approach:
+Iterative Removal,
+I used a while loop to repeatedly process the grid until no changes were made. In each iteration, I identified all @ symbols that needed to be removed and stored their coordinates in a toRemove list.
+Neighbor Counting: For each @ symbol, I counted its neighbors using the same logic as Part 1.
+
+If the number of neighbors was less than 4, the @ symbol was marked for removal.After identifying all @ symbols to be removed, I updated the grid by replacing them with ..
+I also kept track of the total number of @ symbols removed.
+Repeat Until Stable:
+
+The process continued until no more @ symbols were removed in a full pass through the grid.
+
+The function returned the total number of @ symbols removed.
+
+Implementation:
+
+I reused the neighbor-checking logic from Part 1 to determine which @ symbols should be removed.
+To avoid modifying the grid while iterating through it, I used a toRemove list to store the coordinates of @ symbols to be removed.
+After processing the entire grid, I updated the grid and repeated the process until no more changes were made.
+
+### Day 5
+
+#### Part 1:
+
+#### Part 2:
+
