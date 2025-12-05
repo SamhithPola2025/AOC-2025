@@ -1,12 +1,15 @@
 # AOC-2025
 This years advent of code solutions, done in C++ 
 
+[Advent of Code](https://adventofcode.com/2025) is a yearly coding competition where there is one problem per day of december starting december first, this usually lasts ~25 days but this year it's only 12.
+
 ## Solutions/Writeups below: 
 
 ### Times (it's my first year doing AOC or any competitive stuff so they wont be good but thats ok!):
 
 | Day | Part 1    | Part 2    |
 |-----|-----------|-----------|
+| 5   | 00:18:46  | 00:21:26  |
 | 4   | 00:19:19  | 00:31:22  |
 | 3   | 00:21:27  | 00:24:03  |
 | 2   | 00:37:56  | 00:55:30  |
@@ -114,7 +117,7 @@ I think that the remaining problems are going to get exponentially difficult. No
 
 ### Day 4
 For more context, view the problem [here](https://adventofcode.com/2025/day/4)
-Now, I wont be going into exact details of how I went about solving this in the following 2-3 paragraphs, but this is just the general method and thought process I went with. If you want to see the exact solution, refer to [this](day03/day4.cpp).
+Now, I wont be going into exact details of how I went about solving this in the following 2-3 paragraphs, but this is just the general method and thought process I went with. If you want to see the exact solution, refer to [this](day04/day4.cpp).
 
 This is actually quite funny, todays problem was an outlier and happend to be a lot easier than the otherse, regardless of the fact that I got a similar time to day 1 because my abundance of skill issue. I didn't have to think too much about it and here is why:
 
@@ -155,6 +158,41 @@ To avoid modifying the grid while iterating through it, I used a toRemove list t
 After processing the entire grid, I updated the grid and repeated the process until no more changes were made.
 
 ### Day 5
+For more context, view the problem [here](https://adventofcode.com/2025/day/5)
+Now, I wont be going into exact details of how I went about solving this in the following 2-3 paragraphs, but this is just the general method and thought process I went with. If you want to see the exact solution, refer to [this](day05/day5.cpp).
+
+Part 1 was pretty easy, and I also found part 2 relatively easy but it made me think more about whats the best way to do it, I also had to optimize quite a bit because my first output took ~48 seconds which is horrible.
+
+#### Part 1:
+The second you look at the [problem](https://adventofcode.com/2025/day/5) you notice that it seems easy, all you have to do is: 
+
+- Parse input and seperate the num-num range into actual ranges (this part varies by language)
+- Loop through every value in that range and see if the number is in the range
+- Add one to the total counter if it is
+- Print total count for answer of which ingredients are fresh
+
+And if that was your approach/what you thought of, you are right! 
+One thing that I happend to run into was the variable sizes, I had to change things from ```int``` to ```long long``` (which is a data type in C++ that is as big as 8 bytes) because int couldnt store the big values haha!
+
+#### Part 2:
+
+Part 2 introduced a more challenging twist compared to Part 1. Instead of simply counting how many numbers fall within the given ranges, I had to merge overlapping ranges and calculate the total length of all the merged ranges. This required a more thoughtful approach to optimize the solution.
+
+Approach:
+
+The first step was to sort all the ranges by their starting points. This ensures that overlapping or adjacent ranges are grouped together.
+Merge Overlapping Ranges:
+
+I iterated through the sorted ranges and merged any overlapping or adjacent ranges into a single range.
+If the current range did not overlap with the previous range, I added the length of the previous range to the total and started a new range.
+Calculate the Total Length:
+
+After merging all the ranges, I calculated the total length of the merged ranges by summing up the lengths of each range.
+Optimization:
+
+Sorting the ranges upfront and merging them in a single pass ensured that the solution was efficient, with a time complexity of (O(n \log n)) due to the sorting step.
+
+### Day 6
 
 #### Part 1:
 
