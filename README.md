@@ -9,6 +9,7 @@ This years advent of code solutions, done in C++
 
 | Day | Part 1    | Part 2    |
 |-----|-----------|-----------|
+| 6   | 01:43:22  | 02:41:10  |
 | 5   | 00:18:46  | 00:21:26  |
 | 4   | 00:19:19  | 00:31:22  |
 | 3   | 00:21:27  | 00:24:03  |
@@ -193,8 +194,23 @@ Optimization:
 Sorting the ranges upfront and merging them in a single pass ensured that the solution was efficient, with a time complexity of (O(n \log n)) due to the sorting step.
 
 ### Day 6
+For more context, view the problem [here](https://adventofcode.com/2025/day/6)
+Now, I wont be going into exact details of how I went about solving this in the following 2-3 paragraphs, but this is just the general method and thought process I went with. If you want to see the exact solution, refer to [this](day06/day6.py).
+
+#### Problem Overview
+The Elves’ kitchen has a **math worksheet** where problems are arranged vertically in columns. Each problem consists of numbers, and the last row gives the operator (`+` or `*`) to apply to the column of numbers above it.
+
+- **Part 1:** Read the numbers **as-is**, column by column.
+- **Part 2:** Cephalopod math reads numbers **right-to-left**, with each column of digits forming a number from top to bottom.
+
+The task is to compute the **grand total** of all problems.
+
+I did this problem in Python because I couldn't get it to work in C++ and python reduced the scope for errors, I may transalate this into C++ tommorrow if I have time.
+This problem had a rather tricky algorithm, but that's not why I got 3 hours in total.
+Advent of Code tracks your time from when it releases and I happend to have done it 1 hour late.
+
+### Day 7
 
 #### Part 1:
 
 #### Part 2:
-
