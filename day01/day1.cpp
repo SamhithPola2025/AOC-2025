@@ -37,7 +37,9 @@ int part2(const vector<string>& rotations) {
         } else if (dir == 'R') {
             for (int i = 0; i < val; i++) {
                 currentDialPos = (currentDialPos + 1) % 100;
-                if (currentDialPos == 0) counter++;
+                if (currentDialPos == 0) {
+                    counter++;
+                }
             }
         }
     }
