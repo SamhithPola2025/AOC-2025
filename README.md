@@ -211,6 +211,36 @@ Advent of Code tracks your time from when it releases and I happend to have done
 
 ### Day 7
 
-#### Part 1:
+For more context, view the problem [here](https://adventofcode.com/2025/day/7)
 
-#### Part 2:
+This problem involves simulating tachyon beams passing through a manifold with splitters. The twist from Part 1 to Part 2 introduces quantum mechanics—instead of a single beam splitting, we need to count the number of parallel timelines that result.
+
+#### Part 1: Counting Split Events
+
+**Problem:** A tachyon beam enters from position 'S' and moves downward. When it hits a splitter (^), the beam is stopped and two new beams emerge (left-down and right-down). We need to count the total number of split events.
+
+**Approach:**
+- Use DFS (depth-first search) to traverse all beam paths
+- Track visited cells to avoid infinite loops
+- Increment a counter each time we encounter a `^` splitter
+- When a beam hits a splitter, it branches into two paths that both continue downward
+
+**Answer: 1598** (this is for me please dont put this into your thing and expect it to work each persons input varies)
+
+#### Part 2: Counting Timelines with Dynamic Programming
+
+**Problem:** With quantum tachyons, a single particle takes both paths at each splitter simultaneously, creating parallel timelines. Count how many distinct timelines exist after the particle completes its journey.
+
+**Key Insight:** Each timeline corresponds to a unique exit column. When paths merge (multiple beams reaching the same cell), their timeline counts combine. This is a dynamic programming problem where we need to count the number of paths reaching each bottom position.
+
+**Approach:**
+- Use memoization to cache results for each (row, column) position
+- For each position, calculate how many paths lead from that position to the bottom
+- At a splitter `^`: paths = left_paths + right_paths
+- At empty space or start: paths = straight_down_paths
+- Base case: Reaching the bottom counts as 1 successful timeline
+
+**Why Memoization Matters:**
+Without memoization, the same (row, col) position gets recalculated exponentially many times, leading to O(2^n) time complexity. With memoization, each position is computed once, reducing to O(rows × cols).
+
+**Answer: 4509723641302** (this is for me please dont put this into your thing and expect it to work each persons input varies)
