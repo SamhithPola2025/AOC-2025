@@ -244,3 +244,80 @@ This problem involves simulating tachyon beams passing through a manifold with s
 Without memoization, the same (row, col) position gets recalculated exponentially many times, leading to O(2^n) time complexity. With memoization, each position is computed once, reducing to O(rows × cols).
 
 **Answer: 4509723641302** (this is for me please dont put this into your thing and expect it to work each persons input varies)
+
+### Day 8
+
+For more context, view the problem [here](https://adventofcode.com/2025/day/8)
+
+This problem involves connecting junction boxes in 3D space using a graph algorithm approach. The goal is to understand circuit formation by connecting the closest pairs of junction boxes.
+
+#### Part 1: Finding Circuit Sizes After Limited Connections
+
+**Problem:** You have 1000 junction boxes scattered in 3D space. Connect the 1000 closest pairs together (by straight-line distance) and determine the resulting circuit structure.
+
+**Key Concepts:**
+- Junction boxes connected by light strings form circuits
+- Electricity flows between connected boxes, creating connected components
+- After 1000 connections, multiple separate circuits exist
+
+**Approach:**
+1. **Parse Input:** Read all junction box coordinates (x, y, z)
+2. **Generate All Edges:** Create edges between every pair of boxes with their squared distance
+3. **Sort by Distance:** Order edges from shortest to longest
+4. **Union-Find (DSU):** Use Disjoint Set Union to track which boxes are connected
+5. **Connect 1000 Pairs:** Unite the closest 1000 pairs
+6. **Count Components:** Find all separate circuits and their sizes
+
+**Algorithm Details:**
+```cpp
+// Calculate squared distance (avoids sqrt for efficiency)
+long long dist2(Point a, Point b) {
+    long long dx = a.x - b.x;
+    long long dy = a.y - b.y;
+    long long dz = a.z - b.z;
+    return dx*dx + dy*dy + dz*dz;
+}
+
+// Connect first 1000 pairs
+DSU dsu(n);
+for (int i = 0; i < 1000; i++) {
+    dsu.unite(edges[i].u, edges[i].v);
+}
+
+// Collect circuit sizes and multiply top 3
+```
+
+**Answer: 50760** (product of the 3 largest circuit sizes: 47 × 36 × 30)
+
+#### Part 2: Connecting Everything Into One Circuit
+
+**Problem:** Continue connecting the closest unconnected pairs until all junction boxes form a single circuit. Find the product of the X coordinates of the last two junction boxes you connect.
+
+**Key Insight:** This is essentially building a Minimum Spanning Tree (MST) until all nodes are connected.
+
+**Approach:**
+1. Start fresh with a new DSU
+2. Connect pairs in order of distance (same sorted edge list)
+3. Skip pairs already in the same component
+4. Track the last connection made
+5. Stop when `component_size == total_nodes`
+
+**Why Track X Coordinates?**
+The problem asks for the product of X coordinates of the last connection because the Elves need to know how far those junction boxes are from the wall to pick the right extension cable.
+
+**Optimization:**
+Instead of checking all nodes each iteration, we can check if the root component size equals n:
+```cpp
+if (dsu.size[dsu.find(0)] == n) {
+    // All connected!
+    return points[lastU].x * points[lastV].x;
+}
+```
+
+**Answer: 3206508875**
+
+**Time Complexity:**
+- Generating edges: O(n²) where n = 1000
+- Sorting edges: O(n² log n)
+- Union-Find operations: Nearly O(1) with path compression
+- Overall: O(n² log n)
