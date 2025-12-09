@@ -339,7 +339,7 @@ A set of red tiles forms an orthogonal loop; green tiles are the straight segmen
 
 #### Part 2: Largest Rectangle Inside Red/Green Region
 
-- Build polygon edges from the red path (wraparound) — edges are axis-aligned.
+- Build polygon edges from the red path (wraparound) - edges are axis-aligned.
 - Point-in-polygon with boundary using ray casting; boundary counts as inside.
 - A rectangle is valid if all four corners are inside/on the polygon and no polygon edge crosses the rectangle’s interior (checked per vertical/horizontal edge against rectangle span).
 - Enumerate all red point pairs with different x and y (opposite corners), validate the rectangle, compute inclusive area `(dx+1)*(dy+1)`, and keep the max.
