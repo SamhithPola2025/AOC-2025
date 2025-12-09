@@ -9,6 +9,9 @@ This years advent of code solutions, done in C++
 
 | Day | Part 1    | Part 2    | Completed? |
 |-----|-----------|-----------|------------|
+| 9   | 00:06:59  | 00:08:28  | Yes        |
+| 8   | 00:09:59  | 00:11:15  | Yes        |
+| 7   | 00:31:28  | 00:40:03  | Yes        |
 | 6   | 01:43:22  | 02:41:10  | Yes        |
 | 5   | 00:18:46  | 00:21:26  | Yes        |
 | 4   | 00:19:19  | 00:31:22  | Yes        |
@@ -321,3 +324,22 @@ if (dsu.size[dsu.find(0)] == n) {
 - Sorting edges: O(n² log n)
 - Union-Find operations: Nearly O(1) with path compression
 - Overall: O(n² log n)
+
+### Day 9
+
+For more context, view the problem [here](https://adventofcode.com/2025/day/9)
+
+A set of red tiles forms an orthogonal loop; green tiles are the straight segments between consecutive red tiles and everything inside the loop. Rectangles must use two red tiles as opposite corners. All other tiles in the rectangle must be red or green.
+
+#### Part 1: Largest Rectangle on Grid
+
+- Read all red points (496) and brute force all pairs as opposite corners.
+- Use inclusive area `(dx+1)*(dy+1)` because grid cells include both corner tiles.
+- Track the maximum area.
+
+#### Part 2: Largest Rectangle Inside Red/Green Region
+
+- Build polygon edges from the red path (wraparound) — edges are axis-aligned.
+- Point-in-polygon with boundary using ray casting; boundary counts as inside.
+- A rectangle is valid if all four corners are inside/on the polygon and no polygon edge crosses the rectangle’s interior (checked per vertical/horizontal edge against rectangle span).
+- Enumerate all red point pairs with different x and y (opposite corners), validate the rectangle, compute inclusive area `(dx+1)*(dy+1)`, and keep the max.
