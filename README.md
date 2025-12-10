@@ -343,3 +343,5 @@ A set of red tiles forms an orthogonal loop; green tiles are the straight segmen
 - Point-in-polygon with boundary using ray casting; boundary counts as inside.
 - A rectangle is valid if all four corners are inside/on the polygon and no polygon edge crosses the rectangle’s interior (checked per vertical/horizontal edge against rectangle span).
 - Enumerate all red point pairs with different x and y (opposite corners), validate the rectangle, compute inclusive area `(dx+1)*(dy+1)`, and keep the max.
+
+## -- I'm concluding my Advent of Code 2025 attempt here. While I completed Days 1-9, I've realized that my current approach relies too heavily on pattern-matching and brute-force rather than building intuitive problem-solving skills. I think my learning is better served by returning to foundational problems at my level and building up systematically. This repository stays as a record of the progress made and for anyone who wants to see my solutions for the days that I could do. Thanks for following along! --
